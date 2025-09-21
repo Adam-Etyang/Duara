@@ -1,15 +1,15 @@
-
-
-
 {
-  "require": {
-    "phpmailer/phpmailer": "^6.5"
-  },
-  "autoload": {
-    "psr-4": {
-      "Global\\": "Global/",
-      "Forms\\": "Forms/",
-      "Layout\\": "layouts/"
-    }
-  }
+    "name": "adam/duara",
+    "autoload": {
+        "psr-4": {
+            "Adam\\Duara\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Adam",
+            "email": "adametyang69@icloud.com"
+        }
+    ],
+    "require": {}
 }
