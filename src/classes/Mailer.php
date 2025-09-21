@@ -1,6 +1,6 @@
 <?php
 
-namespace App\classes;
+namespace Adam\Duara\classes;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
