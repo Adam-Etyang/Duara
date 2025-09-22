@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,14 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <a class="navbar-brand" href="#">Duara</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -29,6 +32,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-light text-primary ms-2" href="signup.php">Sign Up</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -39,7 +45,10 @@
         <div class="container">
             <h1>Welcome to Duara</h1>
             <p class="lead">Revolutionizing student club management for a connected campus</p>
-            <a href="#features" class="btn btn-light btn-lg">Explore Features</a>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#features" class="btn btn-light btn-lg">Explore Features</a>
+                <a href="signup.php" class="btn btn-outline-light btn-lg">Sign Up Now</a>
+            </div>
         </div>
     </header>
 
@@ -60,7 +69,8 @@
                     <div class="card">
                         <div class="card-body text-center">
                             <h5 class="card-title">Student Engagement</h5>
-                            <p class="card-text">Connect students with clubs that match their interests and passions.</p>
+                            <p class="card-text">Connect students with clubs that match their interests and passions.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -81,7 +91,9 @@
         <div class="container">
             <h2 class="text-center mb-4">About Us</h2>
             <p class="text-center">
-                Duara is a student club management system designed to address the inefficiencies of manual and scattered club management processes. Our platform connects students with campus clubs, making it easier to manage memberships, events, and communication.
+                Duara is a student club management system designed to address the inefficiencies of manual and scattered
+                club management processes. Our platform connects students with campus clubs, making it easier to manage
+                memberships, events, and communication.
             </p>
         </div>
     </section>
@@ -118,4 +130,5 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
