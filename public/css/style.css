@@ -1,0 +1,46 @@
+:root{
+  --bg: #0b0b0b;         /* deep black */
+  --text: #f4f4f4;       /* off-white */
+  --accent: #ff7a00;     /* orange */
+  --accent2: #2aa1ff;    /* blue */
+  --card: #151515;
+  --muted: #bfbfbf;
+}
+
+body{
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Navbar */
+.navbar {
+  background: transparent;
+}
+.navbar .navbar-brand.brand { color: var(--accent); font-weight: 700; letter-spacing: .6px; }
+.nav-link { color: var(--text) !important; }
+.nav-link:hover { color: var(--accent) !important; }
+
+/* Hero */
+header { background: linear-gradient(0deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding: 4rem 0; }
+.header-lead { color: var(--muted); }
+
+/* Buttons */
+.btn-light { background: var(--accent); color: #0b0b0b; border: none; }
+.btn-outline-light { border: 1px solid var(--accent2); color: var(--accent2); background: transparent; }
+.btn-outline-light:hover { background: var(--accent2); color: #fff; }
+
+/* Cards */
+.card { background: var(--card); border: 1px solid #222; color: var(--text); }
+.card-title { color: var(--accent2); }
+
+/* Forms */
+.form-card { max-width: 640px; margin: 2rem auto; padding: 1.6rem; background: #0f0f0f; border-radius: 8px; box-shadow: 0 8px 20px rgba(0,0,0,0.6); border: 1px solid #222; }
+.form-label { color: var(--muted); }
+.form-control { background: #0b0b0b; color: var(--text); border: 1px solid #222; }
+
+/* Footer */
+footer { background: transparent; color: var(--muted); margin-top: 2rem; padding: 1rem 0; text-align: center; }
+
+/* Utilities */
+.small-muted { color: var(--muted); }
