@@ -1,41 +1,42 @@
 <?php
 require_once "../vendor/autoload.php";
 
-use App\classes\Database;
-use App\classes\User;
+use Adam\Duara\classes\Database;
+
+use Adam\Duara\classes\User;
 
 $message = "";
 $messageType = "";
 
 if (isset($_GET["token"])) {
-    $token = $_GET["token"];
+  $token = $_GET["token"];
 
-    try {
-        $database = new Database();
-        $user = new User($database);
+  try {
+    $database = new Database();
+    $user = new User($database);
 
-        $userData = $user->getUserByToken($token);
+    $userData = $user->getUserByToken($token);
 
-        if ($userData) {
-            if ($user->verifyEmail($token)) {
-                $message = "Email verified successfully! You can now log in.";
-                $messageType = "success";
-            } else {
-                $message = "Verification failed. Please try again.";
-                $messageType = "danger";
-            }
-        } else {
-            $message = "Invalid or expired verification token.";
-            $messageType = "warning";
-        }
-    } catch (Exception $e) {
-        $message = "An error occurred during verification.";
+    if ($userData) {
+      if ($user->verifyEmail($token)) {
+        $message = "Email verified successfully! You can now log in.";
+        $messageType = "success";
+      } else {
+        $message = "Verification failed. Please try again.";
         $messageType = "danger";
-        error_log($e->getMessage());
+      }
+    } else {
+      $message = "Invalid or expired verification token.";
+      $messageType = "warning";
     }
+  } catch (Exception $e) {
+    $message = "An error occurred during verification.";
+    $messageType = "danger";
+    error_log($e->getMessage());
+  }
 } else {
-    $message = "No verification token provided.";
-    $messageType = "warning";
+  $message = "No verification token provided.";
+  $messageType = "warning";
 }
 ?>
 
