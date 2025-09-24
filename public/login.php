@@ -7,6 +7,12 @@ use App\classes\User;
 $message = "";
 $messageType = "";
 
+// Check if redirected from logout
+if (isset($_GET['logout'])) {
+    $message = "You have been logged out successfully.";
+    $messageType = "success";
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $database = new Database();
