@@ -1,7 +1,18 @@
 # Duara - Project Management Plan
 
 ## Project Overview
+import React from 'react';
+import ReactDOM from 'react-dom';
 
+export default function HelloReact() {
+    return (
+        <h1>Hello React!</h1>
+    );
+}
+
+if (document.getElementById('hello-react')) {
+    ReactDOM.render(<HelloReact />, document.getElementById('hello-react'));
+}
 **Project Name:** Duara (*"Circle"* in Kiswahili)
 
 ###  Description
@@ -43,4 +54,12 @@ By providing one unified platform for both students and club managers, Duara str
 
  Duara solves these issues by **digitizing the entire process** into a clean, user-friendly system.  
 
+---
+## TODO:
+- [ ] Setup Database
+- [ ] User login and registration
+- [ ] UI creation
+
+## Work done on 29th sept:
+- Setup project and init files
 
