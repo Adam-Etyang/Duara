@@ -63,3 +63,5 @@ By providing one unified platform for both students and club managers, Duara str
 ## Work done on 29th sept:
 - Setup project and init files
 
+## 1st Oct
+- Db stuff, need to fix problems with singlestore
