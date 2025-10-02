@@ -67,7 +67,8 @@ By providing one unified platform for both students and club managers, Duara str
 - Db stuff, need to fix problems with singlestore
 
 ## 2nd Oct
-- DB stuff, still need to fix IP issues with singlestore
+- DB stuff,
+still need to fix IP issues with singlestore
 
 
 
