@@ -69,6 +69,13 @@ By providing one unified platform for both students and club managers, Duara str
 ## 2nd Oct
 - DB stuff,
 still need to fix IP issues with singlestore
+## 3rd Oct
+- DB stuff, stopped using singlestore, now using laravel cloud instead
+Fixed all the database issues, using mysql-client instead of MariaDB, also made the core DB-models of the project
+- still need to deal with ssl/tls certs and all but satisied ith db stuff for now
+- Hosting is also done, using free tier of laravel cloud might deploy later and also has free CI
+
+TODO: Start working on core classes and auth
 
 
 
