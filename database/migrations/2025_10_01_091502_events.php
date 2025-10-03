@@ -11,7 +11,23 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('events', function (Blueprint $table) {
+            $table->id('event_id');
+            $table->unsignedBigInteger('club_id');
+            $table->unsignedBigInteger('created_by'); // student_id (admin)
+            $table->string('title');
+            $table->text('description')->nullable();
+            $table->string('location')->nullable();
+            $table->dateTime('start_time');
+            $table->dateTime('end_time');
+            $table->integer('capacity')->nullable();
+            $table->boolean('requires_approval')->default(false);
+            $table->enum('status', ['draft', 'approved', 'cancelled', 'completed'])->default('draft');
+            $table->timestamps();
+
+            $table->foreign('club_id')->references('club_id')->on('clubs')->cascadeOnDelete();
+            $table->foreign('created_by')->references('student_id')->on('students')->cascadeOnDelete();
+        });
     }
 
     /**
@@ -19,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('events');
     }
 };

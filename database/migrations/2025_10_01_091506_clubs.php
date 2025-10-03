@@ -11,7 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('clubs', function (Blueprint $table) {
+            $table->id('club_id');
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->unsignedBigInteger('created_by'); // student_id (admin)
+            $table->string('category')->nullable();
+            $table->string('logo_url')->nullable();
+            $table->timestamps();
+
+            $table->foreign('created_by')->references('student_id')->on('students')->cascadeOnDelete();
+        });
     }
 
     /**
@@ -19,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('clubs');
     }
 };

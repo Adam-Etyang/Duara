@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
 
 return new class extends Migration
 {
@@ -13,27 +14,23 @@ return new class extends Migration
     {
         // Create USERS as a REFERENCE TABLE (globally replicated)
         // This allows the UNIQUE constraint on email
-        DB::statement("
-            CREATE REFERENCE TABLE users (
-                id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                name VARCHAR(255) NOT NULL,
-                email VARCHAR(255) NOT NULL UNIQUE,
-                email_verified_at TIMESTAMP NULL,
-                password VARCHAR(255) NOT NULL,
-                remember_token VARCHAR(100) NULL,
-                created_at TIMESTAMP NULL,
-                updated_at TIMESTAMP NULL
-            )
-        ");
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
+            $table->timestamps();
+        });
 
         // PASSWORD RESET TOKENS: also reference table (small and global)
-        DB::statement("
-            CREATE REFERENCE TABLE password_reset_tokens (
-                email VARCHAR(255) PRIMARY KEY,
-                token VARCHAR(255) NOT NULL,
-                created_at TIMESTAMP NULL
-            )
-        ");
+        Schema::create('password_reset_tokens', function (Blueprint $table) {
+            $table->string('email')->primary();
+            $table->string('token');
+            $table->timestamp('created_at')->nullable();
+        });
+
 
         // SESSIONS table: can stay as a normal sharded table
         Schema::create('sessions', function ($table) {
