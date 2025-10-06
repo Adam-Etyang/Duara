@@ -14,15 +14,17 @@ return new class extends Migration
     {
         // Create USERS as a REFERENCE TABLE (globally replicated)
         // This allows the UNIQUE constraint on email
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('users')) {
+            Schema::create('users', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->string('email')->unique();
+                $table->timestamp('email_verified_at')->nullable();
+                $table->string('password');
+                $table->rememberToken();
+                $table->timestamps();
+            });
+        }
 
         // PASSWORD RESET TOKENS: also reference table (small and global)
         Schema::create('password_reset_tokens', function (Blueprint $table) {

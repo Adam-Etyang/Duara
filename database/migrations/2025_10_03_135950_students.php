@@ -11,17 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('students', function (Blueprint $table) {
-            $table->id('student_id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password'); // use hashed in model
-            $table->string('year_of_study')->nullable();
-            $table->string('major')->nullable();
-            $table->string('profile_picture')->nullable();
-            $table->timestamps();
-        });
-        
+        if (!Schema::hasTable('students')) {
+            Schema::create('students', function (Blueprint $table) {
+                $table->id('student_id');
+                $table->string('name');
+                $table->string('email')->unique();
+                $table->string('password'); // use hashed in model
+                $table->string('year_of_study')->nullable();
+                $table->string('major')->nullable();
+                $table->string('profile_picture')->nullable();
+                $table->timestamps();
+            });
+        }        
     }
 
     /**

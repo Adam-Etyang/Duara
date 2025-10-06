@@ -11,18 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('club_memberships', function (Blueprint $table) {
-            $table->id('membership_id');
-            $table->unsignedBigInteger('student_id');
-            $table->unsignedBigInteger('club_id');
-            $table->enum('role', ['member', 'admin'])->default('member');
-            $table->enum('status', ['active', 'pending', 'rejected'])->default('pending');
-            $table->timestamp('joined_at')->nullable();
-            $table->timestamps();
+        if (!Schema::hasTable('club_memberships')) {
+            Schema::create('club_memberships', function (Blueprint $table) {
+                $table->id('membership_id');
+                $table->unsignedBigInteger('student_id');
+                $table->unsignedBigInteger('club_id');
+                $table->enum('role', ['member', 'admin'])->default('member');
+                $table->enum('status', ['active', 'pending', 'rejected'])->default('pending');
+                $table->timestamp('joined_at')->nullable();
+                $table->timestamps();
 
-            $table->foreign('student_id')->references('student_id')->on('students')->cascadeOnDelete();
-            $table->foreign('club_id')->references('club_id')->on('clubs')->cascadeOnDelete();
-        });
+                $table->foreign('student_id')->references('student_id')->on('students')->cascadeOnDelete();
+                $table->foreign('club_id')->references('club_id')->on('clubs')->cascadeOnDelete();
+            });
+        }
     }
 
     /**

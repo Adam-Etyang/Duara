@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('communication_channels', function (Blueprint $table) {
-            $table->id('channel_id');
-            $table->unsignedBigInteger('club_id');
-            $table->enum('type', ['whatsapp', 'discord', 'internal_chat', 'email']);
-            $table->string('link_or_id')->nullable();
-            $table->timestamps();
+        if (!Schema::hasTable('communication_channels')) {
+            Schema::create('communication_channels', function (Blueprint $table) {
+                $table->id('channel_id');
+                $table->unsignedBigInteger('club_id');
+                $table->enum('type', ['whatsapp', 'discord', 'internal_chat', 'email']);
+                $table->string('link_or_id')->nullable();
+                $table->timestamps();
 
-            $table->foreign('club_id')->references('club_id')->on('clubs')->cascadeOnDelete();
-        });
+                $table->foreign('club_id')->references('club_id')->on('clubs')->cascadeOnDelete();
+            });
+        }
     }
 
     /**

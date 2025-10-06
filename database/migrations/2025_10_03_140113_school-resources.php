@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        if(!Schema::hasTable('school_resources')){
         Schema::create('school_resources', function (Blueprint $table) {
             $table->id('resource_id');
             $table->string('name');
@@ -19,6 +20,7 @@ return new class extends Migration
             $table->enum('status', ['available', 'reserved', 'unavailable'])->default('available');
             $table->timestamps();
         });
+        }
     }
 
     /**
